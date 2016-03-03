@@ -22,7 +22,7 @@ angular.module('commentForm', [])
           if (!comment.msg || !comment.author) {
             return;
           }
-          scope.$emit('submitted', comment);
+          scope.$emit('submitted', comment, moment().milliseconds(0));
           scope.comment = {};
         }
       }

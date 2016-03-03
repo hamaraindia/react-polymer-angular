@@ -24,13 +24,16 @@ angular.module('commentBox', ['commentList', 'commentForm'])
           $http.get(scope.url)
             .success(function(data, status, headers, config){
               scope.data = data;
+              //alert("scope.data is = "+scope.data);
             })
             .error(function(data, status, headers, config){
               console.log(status);
             });
         };
-        var handleCommentSubmit = function (event, data) {
+        var handleCommentSubmit = function (event, data, timeNow) {
           var comment = data;
+          //var comment = data.toString() + timeNow.toString();
+          //console.log("XXXXXXXXXXXXX comment = "+ comment);
           scope.data.concat([comment]);
           $http.post(scope.url, comment)
             .success(function(data, status, headers, config){
